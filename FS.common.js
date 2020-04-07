@@ -361,6 +361,11 @@ var RNFS = {
   },
 
   // Android only
+  hashUsingInputStream(filepath: string, algorithm: string): Promise<string> {
+    return RNFSManager.hashUsingInputStream(normalizeFilePath(filepath), algorithm);
+  },
+
+  // Android only
   copyFileAssets(filepath: string, destPath: string) {
     if (!RNFSManager.copyFileAssets) {
       throw new Error('copyFileAssets is not available on this platform');
